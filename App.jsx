@@ -1,7 +1,11 @@
 import './App.css'
 import {useState, useEffect} from "react"
 function App() {
+
+
+
   const [pokemones, setPokemones] = useState([])
+  const[busquedapokemon,setbusquedaPokemon] = useState("")
   useEffect(() => {
     const fetchPokemones = async () => {
       const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10")
@@ -30,13 +34,22 @@ setPokemones(detallesPokemon)
  
   return (
     <>
-         <h1>Pokedex - Alberto Pimentel</h1>
+         <h1 className='titulo'>Pokedex - mike bonito</h1>
          <h2>Welcome to the Pokedex</h2>
-         <p>Here you can find information about your favorite Pokemon.</p>
+         <p>find your favorite pokemon!.</p>
+<input type="busqueda" "text"placeholder='busca a tu pokemon'/>
 
          {pokemones.map((pokemon) =>(
           <div className="card" key={pokemon.id}>
           <h1>{pokemon.nombre} #({pokemon.id}) </h1>
+<h2>welcome to the Pokedex</h2>
+<p>find your favorite pokemon!</p>
+<input
+className="busqueda"
+type="text"
+placeholder="busca a tu pokemon"
+value={busquedapokemon}
+/>
           <img src={pokemon.imagen} alt=""/>
           <p>altura : {pokemon.altura / 10} m</p>
           <p>peso: {pokemon.peso / 10} kg</p>
@@ -45,7 +58,7 @@ setPokemones(detallesPokemon)
       
 
          <div>
-          <p>Developed by Alberto Pimentel</p>
+          <p>Developed by mike bonito</p>
           <p>2025</p>
           <p>All rights reserved</p>
          </div>
