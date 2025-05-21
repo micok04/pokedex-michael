@@ -52,3 +52,12 @@
   border: 5px solid #000;
 border-radius: 50px;
 }
+
+pokemonesfiltrados.map((pokemon)) =>(
+<div
+className=".card"
+key={{
+backgroundColor: typeColor[pokemon.types[0]]
+}}
+
+)
